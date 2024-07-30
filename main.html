@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SETS | Ticket Form</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./favicon.png" type="image/x-icon">
+    <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            background-color: #111;
+        }
+        .row {
+        display: flex;
+        justify-content: center;
+        }
+        button {
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #a8a8a8;
+        border-width: 4px;
+        }
+        button:hover {
+            background-color: #6d6d6d; 
+        }
+        input {
+            border-radius: 5px;
+            font-size: 16px;
+            border-width: 2px;
+            margin-left: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    <ul>
+        <img src="favicon.png" alt="Fav" width="50" height="50" style="float: right;">
+        <p style="font-family: Verdana, Geneva, Tahoma, sans-serif; color: white; font-weight: 100; margin-left: 20px;">SETS - Something Engineering and Tech Support</p>
+    </ul>
+    <br>
+    <div style="text-align: center;">
+        <form action="https://formspree.io/f/mkgwjddr" method="post">
+            <div class="row">
+                <label>Enter Discord Username (leave blank if you have none): </label>
+                <input type="text" name="discord_username">
+            </div>
+            <br>
+            <div class="row">
+                <label>Enter Email Address: </label>
+                <input type="text" name="email_adress">
+            </div>
+            <br>
+            <div class="row">
+                <label>Engineering Support?</label>
+                <input type="checkbox" id="show-engineering-fields" name="engineering_support">
+                </div>
+            <br>
+            <div id="engineering-fields" style="display: none;">
+                <p>Enter in exact type of blueprint you want, the purpose, and limitations (what it can and cannot have).</p>
+                <textarea style="width:700px; height:200px;" name="engineering_description"></textarea>
+                <br>
+            </div>
+            <div class="row">
+                <label>Tech Support?</label>
+                <input type="checkbox" id="show-tech-fields" name="tech_support">
+                </div>
+            <br>
+            <div id="tech-fields" style="display: none;">
+                <p>Describe the coding language and what the issue with it is.</p>
+                <textarea style="width:700px; height:200px;" name="tech_description"></textarea>
+                <br>
+            </div>
+            <button>Submit</button>
+        </form>
+    </div>
+  </body>
+</html>
+<script>
+    const engcheckbox = document.getElementById('show-engineering-fields');
+    const engFields = document.getElementById('engineering-fields');
+    const techcheckbox = document.getElementById('show-tech-fields');
+    const techFields = document.getElementById('tech-fields');
+
+    engcheckbox.addEventListener('change', () => {
+        if (engcheckbox.checked) {
+            engFields.style.display = 'block';
+        } else {
+            engFields.style.display = 'none';
+        }
+    });
+    techcheckbox.addEventListener('change', () => {
+        if (techcheckbox.checked) {
+            techFields.style.display = 'block';
+        } else {
+            techFields.style.display = 'none';
+        }
+    });
+</script>
